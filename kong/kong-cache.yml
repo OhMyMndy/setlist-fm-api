@@ -1,0 +1,17 @@
+_format_version: "3.0"
+services:
+  - name: setlistfm-service
+    url: https://www.setlist.fm/
+    routes:
+      - name: deezer-route
+        paths:
+          - "/"
+    plugins:
+    - name: proxy-cache
+      enabled: true
+      config:
+        cache_ttl: 3600
+        strategy: memory
+        content_type:
+          - 'application/json'
+          - 'text/html'
